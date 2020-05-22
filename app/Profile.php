@@ -7,6 +7,8 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Profile extends Model //Swap Model to use mongodb 
 {
+
+
     /**
      * The attributes that are mass assignable.
      *

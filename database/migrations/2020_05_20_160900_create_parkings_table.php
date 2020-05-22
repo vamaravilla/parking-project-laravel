@@ -20,7 +20,7 @@ class CreateParkingsTable extends Migration
             $table->string('month');
             $table->timestamp('intime');
             $table->timestamp('outtime')->nullable();
-            $table->timestamp('time')->nullable();
+            $table->integer('time')->nullable();
             $table->decimal('amount',5,2)->nullable();
             $table->timestamps();
         });
