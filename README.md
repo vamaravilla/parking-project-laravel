@@ -1,79 +1,55 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Three days Challenge
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Best RESTful API to manage a parking place.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Prerequisites 🔧
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* PHP
+* Visual Studio Code
+* MongoDB / SQL Lite (for unit test)
+* Postman
+* Nginx
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Usage ⚙️
 
-## Learning Laravel
+You can run the API local usin: **php artisan serve** or deploy on Nginx Server.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+List of operations availables:
+Method | URI | Name | Action | Middleware
+---|---|---|---|---
+GET/HEAD|/||Closure|web
+POST|api/login||App\Http\Controllers\UserController@authenticate|api
+GET/HEAD|api/parkings|parkings.index|App\Http\Controllers\Api\ParkingController@index|api,jwt.verify
+POST|api/parkings|parkings.store|App\Http\Controllers\Api\ParkingController@store|api,jwt.verify
+DELETE|api/parkings/{parking}|parkings.destroy|App\Http\Controllers\Api\ParkingController@destroy|api,jwt.verify
+PUT/PATCH|api/parkings/{parking}|parkings.update|App\Http\Controllers\Api\ParkingController@update|api,jwt.verify
+GET/HEAD|api/parkings/{parking}|parkings.show|App\Http\Controllers\Api\ParkingController@show|api,jwt.verify
+GET/HEAD|api/profiles|profiles.index|App\Http\Controllers\Api\ProfileController@index|api,jwt.verify
+POST|api/profiles|profiles.store|App\Http\Controllers\Api\ProfileController@store|api,jwt.verify
+GET/HEAD|api/profiles/{profile}|profiles.show|App\Http\Controllers\Api\ProfileController@show|api,jwt.verify
+PUT/PATCH|api/profiles/{profile}|profiles.update|App\Http\Controllers\Api\ProfileController@update|api,jwt.verify
+DELETE|api/profiles/{profile}|profiles.destroy|App\Http\Controllers\Api\ProfileController@destroy|api,jwt.verify
+POST|api/register||App\Http\Controllers\UserController@register|api
+POST|api/vehicles|vehicles.store|App\Http\Controllers\Api\VehicleController@store|api,jwt.verify
+GET/HEAD|api/vehicles|vehicles.index|App\Http\Controllers\Api\VehicleController@index|api,jwt.verify
+DELETE|api/vehicles/{vehicle}|vehicles.destroy|App\Http\Controllers\Api\VehicleController@destroy|api,jwt.verify
+PUT/PATCH|api/vehicles/{vehicle}|vehicles.update|App\Http\Controllers\Api\VehicleController@update|api,jwt.verify
+GET/HEAD|api/vehicles/{vehicle}|vehicles.show|App\Http\Controllers\Api\VehicleController@show|api,jwt.verify
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Also you can run the unit test.  
+ **To use mongodb you have to swap the model base class**
+ 
+## Built With
 
-## Laravel Sponsors
+* [PHP 7.4.6] - The Api and Web framework used
+* [MongoDB] - Cloud storage
+* [Laravel 6.18.15] - Framework and ORM
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+## Author ✒️
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* **Victor Maravilla** - [Likedin](https://www.linkedin.com/in/vamaravilla/)
 
 ## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[MIT](https://choosealicense.com/licenses/mit/)
